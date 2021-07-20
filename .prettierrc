@@ -1,0 +1,9 @@
+{
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": [".*rc"],
+      "options": { "parser": "json" }
+    }
+  ]
+}
