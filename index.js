@@ -1,13 +1,16 @@
 // import { config } from 'dotenv';
 // config();
-import fetch from 'node-fetch';
-import * as unzipper from 'unzipper';
+const fetch = require('node-fetch');
+const unzipper = require('unzipper');
 
-import { DATA_URL } from './config/download.js';
+const { DATA_URL } = require('./config/download.js');
+const bqConfig = require('./config/bigquery.js');
+const { getTable, insertData } = require('./bigquery.js');
 
 const downloadFile = async () => {
-  const bqConfig = await import('./config/bigquery.js');
-  const { getTable, insertData } = await import('./bigquery.js');
+  if (!DATA_URL) {
+    throw 'No url';
+  }
   const res = await fetch(DATA_URL);
   const json = await res?.json();
   const url = json?.result?.resources?.[0]?.url;

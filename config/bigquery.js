@@ -1,4 +1,4 @@
-export const bigqueryConfig = {
+module.exports.bigqueryConfig = {
   datasetID: process.env?.BQ_DATASET_ID,
   projectID: process.env?.BQ_PROJECT_ID,
   private_key: decodeURI(process.env?.BQ_PRIVATE_KEY),
@@ -6,7 +6,7 @@ export const bigqueryConfig = {
   client_email: process.env?.BQ_CLIENT_EMAIL,
 };
 
-export const erb = {
+module.exports.erb = {
   tableID: 'erb_s',
   settlementsSchema: [
     {

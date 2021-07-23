@@ -23,7 +23,6 @@ const db = new BigQuery({
     clientId: bigqueryConfig.clientId,
   },
 });
-const bigquery = new BigQuery();
 // Create table with name in tableID
 const createTable = (tableConfig) => {
   const options = {
@@ -38,7 +37,7 @@ const createTable = (tableConfig) => {
 };
 
 // Drop table and call createTable
-export async function getTable(tableConfig) {
+module.exports.getTable = async (tableConfig) => {
   const exists = await db
     .dataset(bigqueryConfig.datasetID)
     .table(tableConfig.tableID)
@@ -53,9 +52,9 @@ export async function getTable(tableConfig) {
   }
 
   return createTable(tableConfig);
-}
+};
 
-export function insertData(fileStream, tableConfig) {
+module.exports.insertData = (fileStream, tableConfig) => {
   let count = 1;
   // Creating BigQuery writting stream
   const bqStream = db
@@ -95,4 +94,4 @@ export function insertData(fileStream, tableConfig) {
     console.log('bq end');
     process.exit(0);
   });
-}
+};
