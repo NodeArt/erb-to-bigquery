@@ -1,0 +1,29 @@
+{
+  "name": "erb-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "download-json": "node download",
+    "start": "node index.js",
+    "lint": "eslint --ignore-path .gitignore .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/bigquery": "^5.5.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "iconv-lite": "^0.6.2",
+    "node-fetch": "^2.6.0",
+    "through2": "^4.0.2",
+    "unzipper": "^0.10.11"
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-sonarjs": "^0.9.1",
+    "prettier": "^2.3.2"
+  }
+}
