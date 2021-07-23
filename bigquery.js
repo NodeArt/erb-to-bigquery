@@ -1,9 +1,9 @@
-import { BigQuery } from '@google-cloud/bigquery';
-import csv from 'csv-parser';
-import through2 from 'through2';
-import iconv from 'iconv-lite';
+const { BigQuery } = require('@google-cloud/bigquery');
+const csv = require('csv-parser');
+const through2 = require('through2');
+const iconv = require('iconv-lite');
 
-import { bigqueryConfig, erb } from './config/bigquery.js';
+const { bigqueryConfig, erb } = require('./config/bigquery.js');
 
 // Check all env variables in bigquery config
 if (Object.values(bigqueryConfig).includes(undefined)) {
