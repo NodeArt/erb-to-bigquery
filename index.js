@@ -1,7 +1,7 @@
 // import { config } from 'dotenv';
 // config();
 import fetch from 'node-fetch';
-import { Parse } from 'unzipper';
+import * as unzipper from 'unzipper';
 
 import { DATA_URL } from './config/download.js';
 
@@ -17,7 +17,7 @@ const downloadFile = async () => {
   }
 
   const fileReq = await fetch(url);
-  fileReq.body.pipe(Parse()).on('entry', function (entry) {
+  fileReq.body.pipe(unzipper.Parse()).on('entry', function (entry) {
     const table = 'erb';
 
     if (entry.type !== 'File') {
